@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="settings_box" type="id"/>
+    <item name="settings" type="id"/>
+    <item name="language" type="id"/>
+    <item name="about" type="id"/>
+    <item name="close_settings" type="id"/>
+</resources>

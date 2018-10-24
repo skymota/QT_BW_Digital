@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.qt.bwdigital">
+
+    <!-- Required to act as a custom watch face. -->
+    <uses-permission android:name="com.google.android.permission.PROVIDE_BACKGROUND" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER_COMPONENT" />
+    <uses-permission android:name="android.permission.BIND_WALLPAPER" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.type.watch" android:required="false" />
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.DeviceDefault">
+        <activity android:exported="true"
+                  android:launchMode="singleTask"
+                  android:name="com.huami.watch.watchface.custom.ui.WatchFaceSettingsActivity"
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTask"
+                  android:name="com.huami.watch.watchface.custom.ui.WatchFaceCustomActivity"/>
+        <activity android:exported="true"
+                  android:launchMode="singleTask"
+                  android:name="com.qt.bwdigital.settings.Settings"
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.qt.bwdigital.BWdigitalSlpt" />
+        <service
+            android:name="com.qt.bwdigital.BWdigital"
+            android:label="@string/watch_face"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/custom_watch_face"/>
+            <meta-data
+                android:name="com.google.android.wearable.watchface.preview"
+                android:resource="@drawable/preview"/>
+            <meta-data
+                android:name="com.google.android.wearable.watchface.preview_circular"
+                android:resource="@drawable/preview"/>
+            <meta-data android:name="com.huami.watch.watchface.hasslpt" android:value="false" />
+
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService"/>
+                <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE"/>
+            </intent-filter>
+        </service>
+
+        <service android:name="com.qt.bwdigital.CustomDataUpdater" />
+        <receiver
+            android:name="com.qt.bwdigital.Reciever"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.REBOOT" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.qt.bwdigital.settings.ColorActivity"></activity>
+        <activity android:name="com.qt.bwdigital.settings.OthersActivity"></activity>
+        <activity android:name="com.qt.bwdigital.settings.WidgetsActivity"></activity>
+        <activity android:name="com.qt.bwdigital.settings.ProgressWidgetsActivity"></activity>
+        <activity android:name="com.qt.bwdigital.settings.LanguageActivity"></activity>
+    </application>
+
+</manifest>

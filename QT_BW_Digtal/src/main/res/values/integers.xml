@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="battery_circle_full_angle">306</integer>
+    <integer name="battery_circle_len_angle">0</integer>
+    <integer name="battery_circle_start_angle">207</integer>
+    <integer name="battery_steps">11</integer>
+    <integer name="font_ratio">84</integer>
+    <integer name="sltp_circle_color">1</integer>
+    <integer name="steps_circle_full_angle">306</integer>
+    <integer name="steps_circle_len_angle">0</integer>
+    <integer name="steps_circle_start_angle">207</integer>
+    <integer name="steps_steps">11</integer>
+    <integer name="today_distance_circle_full_angle">306</integer>
+    <integer name="today_distance_circle_len_angle">0</integer>
+    <integer name="today_distance_circle_start_angle">207</integer>
+    <integer name="weekdayfont_ratio">84</integer>
+
+    <!-- Slpt refresh rate for custom widgets (air pressure, Xdrip) -->
+    <integer name="custom_refresh_rate">60</integer><!-- in seconds --> <!-- 60 = 1 min -->
+</resources>
